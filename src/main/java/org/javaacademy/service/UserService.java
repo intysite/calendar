@@ -7,4 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class UserService {
+
+    public Long createUser() {
+        return null;
+    }
 }

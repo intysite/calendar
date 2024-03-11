@@ -2,10 +2,13 @@ package org.javaacademy.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-
+@Entity
+@Table(name = "\"user\"")
 @Data
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

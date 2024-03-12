@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Table(name = "\"user\"")
 @Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)

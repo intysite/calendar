@@ -1,6 +1,7 @@
 package org.javaacademy.controller;
 
 import lombok.AllArgsConstructor;
+import org.javaacademy.dto.LoginRq;
 import org.javaacademy.dto.SignUpRq;
 import org.javaacademy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,10 @@ public class UserController {
     @PostMapping("/signup")
     public Long createUser(@RequestBody SignUpRq signUpRq) {
         return userService.createUser(signUpRq);
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestBody LoginRq loginRq) {
+        return userService.loginUser(loginRq);
     }
 }

@@ -34,4 +34,10 @@ public class UserService {
 
         return String.format("1234%s73aa", user.getName());
     }
+
+    public User getUserByToken(String token) {
+        String name = token.substring(4, token.length() - 4);
+        return userDao.findByName(name)
+                    .orElseThrow(() -> new UserNotFoundException("Не найден пользователь с токеном" + token));
+    }
 }

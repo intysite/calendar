@@ -38,6 +38,6 @@ public class UserService {
     public User getUserByToken(String token) {
         String name = token.substring(4, token.length() - 4);
         return userDao.findByName(name)
-                    .orElseThrow(() -> new UserNotFoundException("Не найден пользователь с токеном" + token));
+                    .orElseThrow(() -> new UserNotFoundException("Не найден пользователь с токеном " + token));
     }
 }

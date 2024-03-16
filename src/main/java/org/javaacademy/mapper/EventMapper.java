@@ -18,17 +18,11 @@ public class EventMapper {
     public Event castToEntity(EventDto eventDto) {
         User user = userDao.findByName(eventDto.getUser())
                 .orElseThrow(() -> new UserNotFoundException("Не найден пользователь с почтой " + eventDto.getUser()));
-        Category category;
-        if (Arrays.stream(Category.values()).anyMatch(e -> e.name().equals(eventDto.getCategory()))) {
-            category = Category.valueOf(eventDto.getCategory());
-        } else {
-            category = Category.OTHER;
-        }
 
         return new Event(user,
                 eventDto.getDatetime(),
                 eventDto.getDescription(),
-                category);
+                Category.valueOf(eventDto.getCategory()));
     }
 
     public EventDto castToDto(Event event) {

@@ -12,5 +12,5 @@ public class EventDto {
     private String user;
     private LocalDate datetime;
     private String description;
-    private Category category;
+    private String category;
 }

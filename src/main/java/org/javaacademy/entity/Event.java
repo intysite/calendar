@@ -27,6 +27,7 @@ public class Event {
     @Column
     private LocalDate datetime;
 
+    @NonNull
     @Column
     private String description;
 

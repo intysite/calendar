@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.javaacademy.dto.EventDto;
 import org.javaacademy.entity.Category;
 import org.javaacademy.entity.Event;
+import org.javaacademy.entity.User;
 import org.javaacademy.mapper.EventMapper;
 import org.javaacademy.repository.EventDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class EventService {
     EventMapper eventMapper;
     EventDao eventDao;
 
-    public Long createEvent(EventDto eventDto) {
+    public Long createEvent(User user, EventDto eventDto) {
         Category category;
         if (Arrays.stream(Category.values()).anyMatch(e -> e.name().equals(eventDto.getCategory()))) {
             category = Category.valueOf(eventDto.getCategory());
@@ -28,7 +29,7 @@ public class EventService {
         }
         eventDto.setCategory(category.toString());
 
-        Event event = eventMapper.castToEntity(eventDto);
+        Event event = eventMapper.castToEntity(user, eventDto);
         eventDao.save(event);
         return event.getId();
     }

@@ -15,10 +15,7 @@ import java.util.Arrays;
 public class EventMapper {
     @Autowired
     UserDao userDao;
-    public Event castToEntity(EventDto eventDto) {
-        User user = userDao.findByName(eventDto.getUser())
-                .orElseThrow(() -> new UserNotFoundException("Не найден пользователь с почтой " + eventDto.getUser()));
-
+    public Event castToEntity(User user, EventDto eventDto) {
         return new Event(user,
                 eventDto.getDatetime(),
                 eventDto.getDescription(),

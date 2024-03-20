@@ -18,7 +18,7 @@ public class EventController {
     private final EventService eventService;
     private final UserService userService;
 
-    @PostMapping("/event/{token")
+    @PostMapping("/event/{token}")
     public ResponseEntity<?> createEvent(@PathVariable String token, @RequestBody EventDto eventDto) {
         if (token == null) {
             return new ResponseEntity<>("Токен пользователя не задан", HttpStatus.BAD_REQUEST);

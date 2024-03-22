@@ -24,6 +24,11 @@ public class EventController {
                                     HttpStatus.OK);
     }
 
+    @DeleteMapping("/event")
+    public ResponseEntity<?> deleteEvent(@RequestParam Long id, @RequestParam String user) {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @GetMapping("/event/{token}")
     public ResponseEntity<?> getEventsByUser(@PathVariable String token) {
         return new ResponseEntity<>(HttpStatus.OK);

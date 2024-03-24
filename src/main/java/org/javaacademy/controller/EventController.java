@@ -33,4 +33,9 @@ public class EventController {
     public ResponseEntity<?> getEventsByUser(@PathVariable String token) {
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/event")
+    public ResponseEntity<?> getEventsByUserAndCategory(@RequestParam String category) {
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

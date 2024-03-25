@@ -31,6 +31,9 @@ public class EventController {
 
     @GetMapping("/event/{token}")
     public ResponseEntity<?> getEventsByUser(@PathVariable String token) {
+        if (token == null) {
+            return new ResponseEntity<>("Токен пользователя не задан", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

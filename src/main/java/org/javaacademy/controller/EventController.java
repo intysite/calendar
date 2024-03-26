@@ -39,6 +39,9 @@ public class EventController {
 
     @GetMapping("/event")
     public ResponseEntity<?> getEventsByUserAndCategory(@RequestParam String category) {
+        if (category == null) {
+            return new ResponseEntity<>("Категория не задана", HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
